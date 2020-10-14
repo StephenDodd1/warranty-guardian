@@ -7,7 +7,7 @@ function Main() {
   return(
     <main>
       <div className = 'items-container'>
-      <Link to='Add'>() + )</Link>
+      <Link to='Add'>( + )</Link>
       <Items />
       </div>
       <Item />
