@@ -1,18 +1,20 @@
-import React from 'react';
-import Items from '../Items/Items'
-import Item from '../Item/Item'
-import {Link} from 'react-router-dom'
+import React, { Component } from "react";
+import Items from "../Items/Items";
+import Item from "../Item/Item";
+import { Link } from "react-router-dom";
 
-function Main() {
-  return(
-    <main>
-      <div className = 'items-container'>
-      <Link to='Add'>( + )</Link>
-      <Items />
-      </div>
-      <Item />
-    </main>
-  )
+class Main extends Component {
+  render() {
+    return (
+      <main>
+        <div className="items-container">
+          <Link to="Add">( + )</Link>
+          <Items renderItem={this.props.renderItem} />
+        </div>
+        <Item />
+      </main>
+    );
+  }
 }
 
 export default Main;

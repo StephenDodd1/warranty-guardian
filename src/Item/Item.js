@@ -2,11 +2,17 @@ import React from 'react';
 import { Component } from 'react';
 
 class Item extends Component {
- 
+  constructor(props) {
+    super(props);
+    this.state = {
+      item: null
+    }
+  }
   render() {
-    console.log(this.params)
+    const renderItem = this.state.item !== null ? 
+    <div>Item rendered {window.location.pathname}</div> : <></>
   return(
-    <div>Item rendered </div>
+    renderItem
   )
 }
 }

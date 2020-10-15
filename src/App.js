@@ -3,10 +3,13 @@ import Header from './Header/Header';
 import Main from './Main/Main'
 
 function App() {
+  const renderItem = () => {
+    console.log('RENDER ITEM ran')
+  }
   return (
     <div className="App">
       <Header />
-      <Main />
+      <Main renderItem = {renderItem}/>
     </div>
   );
 }
