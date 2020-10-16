@@ -1,17 +1,31 @@
-import React from 'react';
-import Header from './Header/Header';
-import Main from './Main/Main'
+import React, { Component } from "react";
+import Header from "./Header/Header";
+import Main from "./Main/Main";
+import {ItemContext} from './context'
+import { Route } from "react-router-dom";
 
-function App() {
-  const renderItem = () => {
-    console.log('RENDER ITEM ran')
+class App extends Component {
+  constructor(props) {
+    super(props);
+      this.state = {
+        item: null
+      }
   }
-  return (
-    <div className="App">
-      <Header />
-      <Main renderItem = {renderItem}/>
-    </div>
-  );
+  //setup context for later use
+  static contextType = ItemContext;
+
+  render() {
+    let item = null;
+    const renderItem = (e) => {
+      return this.setState({item: e.target.id});
+    };
+    return (
+      <div className="App">
+        <Header />
+        <Route path = '/' render = {() => (<Main renderItem={renderItem} item={this.state.item} />)} />
+      </div>
+    );
+  }
 }
 
 export default App;

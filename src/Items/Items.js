@@ -1,28 +1,35 @@
-import React from 'react';
-import { Component } from 'react';
-import {Link} from 'react-router-dom'
+import React from "react";
+import { Component } from "react";
+import { Link } from "react-router-dom";
 
 class Items extends Component {
-  componentDidMount() {
-}
+  componentDidMount() {}
 
   render() {
     let itemsList = () => {
-      let items = []
-        for(let i = 1; i < 3; i++){
-        items.push(<li id={`${i}`} key={`${i}`} onClick={this.props.renderItem}><Link id='1' to={`item/${i}`} replace>test {i}</Link></li>)
-        }
-        console.log(items)
+      let items = [];
+      for (let i = 1; i < 3; i++) {
+        items.push(
+          <li id={`${i}`} key={`${i}`}>
+            <Link
+              id={`${i}`}
+              to={`../item/${i}`}
+              value={`${i}`}
+              onClick={(e) => this.props.renderItem(e)}
+            >
+              test {i}
+            </Link>
+          </li>
+        );
+      }
       return items;
-    }
-  return(
-    <div>
-      <ul>
-        {itemsList()}
-      </ul>
-    </div>
-  )
-}
+    };
+    return (
+      <div>
+        <ul>{itemsList()}</ul>
+      </div>
+    );
+  }
 }
 
 export default Items;

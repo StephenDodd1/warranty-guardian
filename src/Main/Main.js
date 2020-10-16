@@ -11,7 +11,7 @@ class Main extends Component {
           <Link to="Add">( + )</Link>
           <Items renderItem={this.props.renderItem} />
         </div>
-        <Item />
+        <Item item={this.props.item}/>
       </main>
     );
   }
