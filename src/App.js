@@ -15,7 +15,6 @@ class App extends Component {
   static contextType = ItemContext;
 
   render() {
-    let item = null;
     const renderItem = (e) => {
       return this.setState({item: e.target.id});
     };
